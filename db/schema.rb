@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170324184936) do
+ActiveRecord::Schema.define(version: 20170324202040) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 20170324184936) do
     t.text     "additional_description"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.string   "api_name"
+    t.string   "api_id"
   end
 
   create_table "job_posts_skills", force: :cascade do |t|
@@ -35,18 +37,18 @@ ActiveRecord::Schema.define(version: 20170324184936) do
     t.index ["skill_id"], name: "index_job_posts_skills_on_skill_id", using: :btree
   end
 
-  create_table "skills", force: :cascade do |t|
-    t.string   "image"
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "job_posts_users", force: :cascade do |t|
     t.integer "user_id"
     t.integer "job_post_id"
     t.index ["job_post_id"], name: "index_job_posts_users_on_job_post_id", using: :btree
     t.index ["user_id"], name: "index_job_posts_users_on_user_id", using: :btree
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string   "image"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
