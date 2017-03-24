@@ -15,6 +15,6 @@ class User < ApplicationRecord
 
   validates_presence_of :name
 
-  has_many :job_posts, dependent: :destroy
+  has_and_belongs_to_many :job_posts
 
 end
