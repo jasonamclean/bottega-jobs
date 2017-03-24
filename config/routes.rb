@@ -6,6 +6,5 @@ Rails.application.routes.draw do
   get 'jobs', to:'jobs#index'
   get 'jobs/:id', to: 'jobs#show'
 
-  get '/dice', to: "dice#index"
   # get '*unmatched_route', to: 'jobs#show'
 end
